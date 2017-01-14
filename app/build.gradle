@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply from: "$project.rootDir/tools/script-git-version.gradle"
 
 android {
     compileSdkVersion 25
@@ -29,15 +30,15 @@ android {
     productFlavors {
         dev {
             signingConfig signingConfigs.debug
-            versionCode 1
-            versionName "1.0"
+            versionCode gitVersionCodeTime
+            versionName gitVersionName
             applicationId "com.zizmos.equake.dev"
         }
 
         prod {
             signingConfig signingConfigs.release
-            versionCode 1
-            versionName "1.0"
+            versionCode gitVersionCode
+            versionName gitVersionName
             applicationId "com.zizmos.equake"
         }
     }
