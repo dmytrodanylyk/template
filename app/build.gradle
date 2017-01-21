@@ -9,7 +9,6 @@ android {
         applicationId "com.dd.template"
         minSdkVersion 18
         targetSdkVersion 25
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -32,14 +31,12 @@ android {
             signingConfig signingConfigs.debug
             versionCode gitVersionCodeTime
             versionName gitVersionName
-            applicationId "com.zizmos.equake.dev"
         }
 
         prod {
             signingConfig signingConfigs.release
             versionCode gitVersionCode
             versionName gitVersionName
-            applicationId "com.zizmos.equake"
         }
     }
 
@@ -50,6 +47,8 @@ android {
             signingConfig signingConfigs.release
         }
         debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), "$project.rootDir/tools/rules-proguard-debug.pro"
             signingConfig signingConfigs.debug
         }
     }
