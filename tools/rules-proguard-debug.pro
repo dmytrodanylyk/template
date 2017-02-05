@@ -16,6 +16,7 @@
 #   public *;
 #}
 
+-ignorewarnings
 -dontobfuscate
 -dontoptimize
 -ignorewarnings
