@@ -22,4 +22,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Application version: 1.2.3-42-gac76085" />
+
+    <TextView
+        android:id="@+id/appVersionCodeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Application version code: 123" />
 </LinearLayout>

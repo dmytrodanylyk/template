@@ -29,7 +29,7 @@ android {
     productFlavors {
         dev {
             signingConfig signingConfigs.debug
-            versionCode gitVersionCode
+            versionCode gitVersionCodeTime
             versionName gitVersionName
             applicationId "com.dd.template.dev"
         }

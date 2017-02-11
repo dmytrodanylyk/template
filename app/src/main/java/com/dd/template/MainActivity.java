@@ -18,5 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
         TextView appNameView = findById(this, R.id.appNameView);
         appNameView.setText(getString(R.string.main_app_name, getString(R.string.app_name)));
+
+        TextView appVersionCodeView = findById(this, R.id.appVersionCodeView);
+        appVersionCodeView.setText(getString(R.string.main_app_version_code, BuildConfig.VERSION_CODE));
     }
 }
