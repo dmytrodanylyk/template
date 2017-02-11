@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply from: "$project.rootDir/tools/script-git-version.gradle"
 apply from: "$project.rootDir/tools/script-findbugs.gradle"
 apply from: "$project.rootDir/tools/script-lint.gradle"
+apply from: "$project.rootDir/tools/script-pmd.gradle"
 
 android {
     compileSdkVersion 25
