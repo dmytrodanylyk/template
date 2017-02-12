@@ -1,4 +1,4 @@
-package com.dd.template;
+package com.dd.template.utils;
 
 import android.app.Activity;
 import android.support.annotation.IdRes;

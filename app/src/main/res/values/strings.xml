@@ -2,4 +2,5 @@
     <string name="main_app_name">Application name: %s</string>
     <string name="main_app_version">Application version: %s</string>
     <string name="main_app_version_code">Application version code: %d</string>
+    <string name="main_exit">Exit</string>
 </resources>
