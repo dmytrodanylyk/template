@@ -1,29 +1,68 @@
 apply plugin: 'com.android.application'
+apply from: "$project.rootDir/tools/script-git-version.gradle"
+apply from: "$project.rootDir/tools/script-findbugs.gradle"
+apply from: "$project.rootDir/tools/script-lint.gradle"
+apply from: "$project.rootDir/tools/script-pmd.gradle"
+apply from: "$project.rootDir/tools/script-java-code-coverage.gradle"
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
     defaultConfig {
         applicationId "com.dd.template"
         minSdkVersion 18
-        targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        targetSdkVersion 25
     }
+
+    signingConfigs {
+        debug {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storePassword 'android'
+            storeFile file('../keystore/debug.keystore')
+        }
+        release {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storePassword 'android'
+            storeFile file('../keystore/release.keystore')
+        }
+    }
+
+    productFlavors {
+        dev {
+            signingConfig signingConfigs.debug
+            versionCode gitVersionCodeTime
+            versionName gitVersionName
+            applicationId "com.dd.template.dev"
+        }
+
+        prod {
+            signingConfig signingConfigs.release
+            versionCode gitVersionCode
+            versionName gitVersionName
+            applicationId "com.dd.template"
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), "$project.rootDir/tools/rules-proguard.pro"
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), "$project.rootDir/tools/rules-proguard-debug.pro"
+            signingConfig signingConfigs.debug
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    testCompile 'junit:junit:4.12'
+    compile("com.android.support:design:$supportVersion")
+
+    testCompile "org.mockito:mockito-core:1.10.19"
+    testCompile "junit:junit:4.12"
 }
