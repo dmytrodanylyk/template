@@ -2,7 +2,7 @@ package com.dd.template.main;
 
 public class MainPresenter {
 
-    private MainView view;
+    private final MainView view;
 
     MainPresenter(MainView view) {
         this.view = view;
