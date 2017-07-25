@@ -1,9 +1,9 @@
 apply plugin: 'findbugs'
 
 task findbugs(type: FindBugs) {
-    excludeFilter = file("../tools/rules-findbugs.xml")
-    classes = fileTree("$project.buildDir/intermediates/classes/dev/debug/com/dd")
-    source = fileTree('src/main/java/com/dd/')
+    excludeFilter = file("$project.rootDir/tools/rules-findbugs.xml")
+    classes = fileTree("$project.buildDir/intermediates/classes/dev/debug/com/dd") + fileTree("$project.buildDir/intermediates/classes/prod/debug/com/dd")
+    source = fileTree("$project.rootDir/src/main/java/com/dd/")
     classpath = files()
 
     reports {
