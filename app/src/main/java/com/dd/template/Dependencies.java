@@ -1,9 +1,5 @@
 package com.dd.template;
 
-import android.content.Context;
-
-import com.dd.template.dependecies.AndroidLogger;
-import com.dd.template.dependecies.AndroidPreferences;
 import com.dd.template.dependecies.Logger;
 import com.dd.template.dependecies.Preferences;
 
@@ -14,9 +10,9 @@ public enum Dependencies {
     private Logger logger;
     private Preferences preferences;
 
-    void init(Context context) {
-        logger = new AndroidLogger();
-        preferences = new AndroidPreferences(context);
+    void init(DependenciesFactory dependenciesFactory) {
+        logger = dependenciesFactory.newLogger();
+        preferences = dependenciesFactory.newPreferences();
     }
 
     public Logger getLogger() {
