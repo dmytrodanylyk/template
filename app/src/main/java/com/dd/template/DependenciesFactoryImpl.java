@@ -7,11 +7,11 @@ import com.dd.template.dependecies.AndroidPreferences;
 import com.dd.template.dependecies.Logger;
 import com.dd.template.dependecies.Preferences;
 
-public class ProdDependencies implements DependenciesFactory {
+public class DependenciesFactoryImpl implements DependenciesFactory {
 
-    private Context context;
+    private final Context context;
 
-    ProdDependencies(Context context) {
+    DependenciesFactoryImpl(Context context) {
         this.context = context;
     }
 

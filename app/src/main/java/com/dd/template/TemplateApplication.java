@@ -9,7 +9,7 @@ public class TemplateApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Dependencies.INSTANCE.init(new ProdDependencies(this));
+        Dependencies.INSTANCE.init(new DependenciesFactoryImpl(this));
 
         if (BuildConfig.DEBUG) {
             StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()

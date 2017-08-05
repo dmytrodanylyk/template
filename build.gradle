@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 ext {
-    supportVersion = '25.2.0'
+    supportVersion = '25.3.1'
 }
 
 buildscript {

@@ -15,11 +15,11 @@ public enum Dependencies {
         preferences = dependenciesFactory.newPreferences();
     }
 
-    public Logger getLogger() {
-        return logger;
+    public static Logger logger() {
+        return Dependencies.INSTANCE.logger;
     }
 
-    public Preferences getPreferences() {
-        return preferences;
+    public static Preferences preferences() {
+        return Dependencies.INSTANCE.preferences;
     }
 }
